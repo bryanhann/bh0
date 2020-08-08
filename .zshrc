@@ -2,17 +2,15 @@ pushd $ZDOTDIR
 source ./globals.sh
 source ./functions.sh
 
-bh0include bh0.venv
-venv_install
-bh0include bh0.omzsh
-omzsh_install
-bh0include bh0.zjot
-bh0include bh0.user.omzsh
+bh0include bh0-venv ; venv_install
+
 bh0firstrun && {
 	bh0export PATH	$PATH:$(venv_venv)/bin
 	bh0export DEPTH 	-1
 }
 
+bh0include bh0-omzsh ; omzsh_install
+bh0include bh0-user
 bh0export VIRTUALENVWRAPPER_PYTHON    $(venv_venv)/bin/python
 bh0export VIRTUALENVWRAPPER_HOOK_DIR  $BH0_LOCAL/VIRTUALENVWRAPPER_HOOK_DIR
 bh0export WORKON_HOME                 $BH0_LOCAL/WORKON_HOME
