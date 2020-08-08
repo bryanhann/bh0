@@ -6,6 +6,7 @@ bh0include bh0.venv
 venv_install
 bh0include bh0.omzsh
 omzsh_install
+bh0include bh0.zjot
 bh0include bh0.user.omzsh
 bh0firstrun && {
 	bh0export PATH	$PATH:$(venv_venv)/bin
